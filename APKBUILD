@@ -33,7 +33,8 @@ build() {
 
 package() {
 	cd "$builddir"
-	make DESTDIR="$pkgdir" install || return 1
+	mkdir -p "$pkgdir"/var/lib/$pkgname
+	install -Dm755 target/bin/rkt "$pkgdir"/usr/bin/rkt
 }
 
 md5sums="15b28632ef2c50b473de59fb1bd9a85e  rkt-1.20.0.tar.gz"
