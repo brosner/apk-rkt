@@ -3,7 +3,7 @@
 pkgname=rkt
 pkgver=1.20.0
 pkgrel=0
-pkgdesc="rkt is a container engine for Linux designed to be composable, secure, and built on standards"
+pkgdesc="container engine for Linux designed to be composable, secure, and built on standards"
 url="https://github.com/coreos/rkt"
 arch="x86_64"
 license="ASL 2.0"
