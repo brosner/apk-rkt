@@ -34,7 +34,11 @@ build() {
 package() {
 	cd "$builddir"
 	mkdir -p "$pkgdir"/var/lib/$pkgname
-	install -Dm755 target/bin/rkt "$pkgdir"/usr/bin/rkt
+	install -Dm755 "build-rkt-$pkgver"/target/bin/rkt "$pkgdir"/usr/bin/rkt
+	mkdir -p "$pkgdir"/usr/lib/rkt/stage1-images
+	for flavor in fly coreos kvm; do
+		install -Dm644 "build-rkt-$pkgver"/target/bin/stage1-${flavor}.aci "$pkgdir"/usr/lib/rkt/stage1-images/stage1-${flavor}.aci
+	done
 }
 
 md5sums="15b28632ef2c50b473de59fb1bd9a85e  rkt-1.20.0.tar.gz"
